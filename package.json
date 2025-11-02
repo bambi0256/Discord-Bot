@@ -1,0 +1,15 @@
+{
+  "name": "message-copy-bot",
+  "version": "1.0.0",
+  "description": "Discord Message Copy Bot",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "Test Text"
+  },
+  "dependencies": {
+    "discord.js": "^14.24.2"
+  }
+}
