@@ -20,6 +20,13 @@ client.once('clientReady', () => {
   console.log(`✅ 봇 로그인 완료: ${client.user.tag}`);
 });
 
+//포트 연결(더미)
+const http = require('http');
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Discord bot is running.\n');
+}).listen(process.env.PORT || 3000);
+
 // 메시지가 생성될 때 실행되는 이벤트
 client.on('messageCreate', async (message) => {
   try {
@@ -54,4 +61,5 @@ client.on('messageCreate', async (message) => {
 
 // 봇 실행
 client.login(token);
+
 
