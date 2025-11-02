@@ -1,7 +1,9 @@
 // index.js
 // Discord.js v14 사용
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
-const { token, sourceChannelId, testChannelId, targetChannelId } = require('./config.json');
+const token = process.env.TOKEN;
+const sourceChannelId = process.env.SOURCE_CHANNEL_ID;
+const targetChannelId = process.env.TARGET_CHANNEL_ID;
 
 // 클라이언트 생성
 const client = new Client({
@@ -25,7 +27,7 @@ client.on('messageCreate', async (message) => {
     if (message.author.bot || !message.guild) return;
 
     // 2️⃣ 특정 채널(sourceChannelId)에서만 동작
-    if (message.channel.id !== sourceChannelId || message.channel.id !== testChannelId) return;
+    if (message.channel.id !== sourceChannelId) return;
 
     // 3️⃣ 대상 채널 가져오기
     const targetChannel = await client.channels.fetch(targetChannelId);
@@ -52,3 +54,4 @@ client.on('messageCreate', async (message) => {
 
 // 봇 실행
 client.login(token);
+
